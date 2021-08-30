@@ -32,7 +32,7 @@ class PlaceController extends AbstractController
     /**
      * @Route("/api/place/{id}", name="api_place_avec_id", methods="GET")
      */
-    public function findById(PlaceRepository $placeRepository, NormalizerInterface $normalizer): Response
+    public function findById(PlaceRepository $placeRepository, NormalizerInterface $normalizer,$id): Response
     {
         $place = $placeRepository->find($id);
         $normalized = $normalizer->normalize($place,null,['groups'=>'place:read']);
